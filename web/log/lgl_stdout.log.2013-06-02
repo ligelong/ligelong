@@ -1,0 +1,2 @@
+00:40:40,387[WARN][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:100)SQL Error: 1054, SQLState: 42S22
+00:40:40,396[ERROR][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:101)Unknown column 'status' in 'where clause'

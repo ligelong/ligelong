@@ -1,0 +1,210 @@
+body {
+	scrollbar-face-color:#dee3e7;
+	scrollbar-highlight-color:white;
+	scrollbar-shadow-color:#dee3e7;
+	scrollbar-3dlight-color:#d1d7dc;
+	scrollbar-arrow-color:#006699;
+	scrollbar-track-color:#efefef;
+	scrollbar-darkshadow-color:#98aab1;
+	background-color:#f0f0f0;
+}
+
+body, table, input, button, select, textarea {
+	font-family:Verdana,sans-serif;
+	font-size:10pt;
+}
+
+a:link {
+	font-size:12px;
+	color:#0018c1;
+	font-family:Verdana,sans-serif;
+	text-decoration:none;
+}
+a:active {
+	font-size:12px;
+	color:#0018c1;
+	font-family:Verdana,sans-serif;
+	text-decoration:none;
+}
+a:visited {
+	font-size:12px;
+	color:#0018c1;
+	font-family:Verdana,sans-serif;
+	text-decoration:none;
+}
+a:hover {
+	font-size:12px;
+	color:#ff3300;
+	font-family:Verdana,sans-serif;
+	text-decoration:underline;
+}
+
+input, button {
+	background-color:white;
+	border:1pt solid #505050;
+}  
+
+textarea {
+	background-color:white;
+	border:1pt solid #505050;
+}
+
+input.button {
+	font-size:11px;
+	color:black;
+	font-family:Verdana,sans-serif;
+}
+input.mainoption {
+	font-weight:bold;
+	background-color:#fafafa;
+}
+input.liteoption {
+	font-weight:normal;
+	background-color:#fafafa;
+}
+
+table.tablestyle {
+	border:#0051b5 1pt solid;
+	background-color:white;
+}
+
+th.tabletitle {
+	font-weight:bold;
+	font-size:12px;
+	color:#ffBF00;
+	font-family:Verdana,sans-serif;
+	height:25px;
+	background-color:#3d5aBF;
+}
+
+.tabletitle	{
+	font-weight:bold;
+	font-size:12px;
+	color:#ffBF00;
+	font-family:Verdana,sans-serif;
+	text-align:center;
+}
+
+td.itemtitle {
+	font-family:Verdana,sans-serif;
+	height:28px;
+	background-color:#cedefa;
+	color:#2c80d6;
+	border:1pt solid #adc5ed;
+	text-align:center;
+}
+
+td.itemnormal {
+	background-color:#f5f9fe;
+	border:1pt solid #e0ecfc;
+	text-align:center;
+}
+
+td.itemlight {
+	background-color:white;
+}
+
+td.itemdark {
+	background-color:#f5f9fe;
+}
+
+.title {
+	font-weight:bold;
+	font-size:14px;
+	font-family:Verdana,sans-serif;
+}
+
+input.exit {
+	border:medium none;
+}
+
+.boldfaced {
+	font-weight:bold;
+	font-size:12px;
+	color:#003399;
+}
+.warning {
+	font-size:14px;
+	font-weight:bold;
+	color:#ff0000;
+}
+
+td.highpriority {
+	background-color:#FFDFDF;
+	border:1pt solid #e0ecfc;
+}
+td.normalpriority {
+	background-color:#FFFFDF;
+	border:1pt solid #e0ecfc;
+}
+td.lowpriority {
+	background-color:#DFFFDF;
+	border:1pt solid #e0ecfc;
+}
+
+div.hiddendiv {
+	z-index: 9999;
+	margin-bottom: 3px;
+	display: none;
+	position: absolute;
+	background: #DFFFDF;
+	border:solid 1px #6e8bde;
+	width:200px;
+	height:66px;
+}
+
+div.popdiv {
+	z-index: 9999;
+	margin-bottom: 3px;
+	display: none;
+	position: absolute;
+	background: #DFFFDF;
+	border:solid 1px #6e8bde;
+	width:200px;
+	height:66px;
+}
+
+.pagination {
+	font-size: 80%;
+}
+        
+.pagination a {
+	text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+}
+
+.pagination a, .pagination span {
+	display: block;
+	float: left;
+	padding: 0.3em 0.5em;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	min-width:1em;
+	text-align:center;
+}
+
+.pagination .current {
+	background: #26B;
+	color: #fff;
+	border: solid 1px #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+
+.datepicker { border-collapse: collapse; border: 2px solid #999; position: absolute; }
+.datepicker tr.controls th { height: 22px; font-size: 11px; }
+.datepicker select { font-size: 11px; }
+.datepicker tr.days th { height: 18px; }
+.datepicker tfoot td { height: 18px; text-align: center; text-transform: capitalize; }
+.datepicker th, .datepicker tfoot td { background: #eee; font: 10px/18px Verdana, Arial, Helvetica, sans-serif; }
+.datepicker th span, .datepicker tfoot td span { font-weight: bold; }
+
+.datepicker tbody td { width: 24px; height: 24px; border: 1px solid #ccc; font: 11px/22px Arial, Helvetica, sans-serif; text-align: center; background: #fff; }
+.datepicker tbody td.date { cursor: pointer; }
+.datepicker tbody td.date.over { background-color: #99ffff; }
+.datepicker tbody td.date.chosen { font-weight: bold; background-color: #ccffcc; }

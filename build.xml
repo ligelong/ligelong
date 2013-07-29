@@ -1,0 +1,35 @@
+<project name="antbuild" default="dist">
+    <description>lgl</description>
+    <property name="dist" value="."/>
+    <property name="build" value="build"/>
+    <property name="lib" location="/usr/local/tomcat/webapps/lgl/WEB-INF/lib"/>
+    <property name="lib2" location="lib"/>
+    <property name="src" location="src"/>
+    <path id="project.class.path">
+        <pathelement path="${java.class.path}"/>
+        <pathelement path="${additional.path}"/>
+        <fileset dir="${lib}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${lib2}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    <target name="compile">
+        <delete dir="${build}"/>
+        <mkdir dir="${build}"/>
+        <copy todir="${build}">
+            <fileset dir="${src}">
+                <include name="**/*.xml"/>
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+        <javac srcdir="${src}" destdir="${build}" encoding="utf-8" debug="on" includeantruntime="on">
+            <classpath refid="project.class.path"/>
+        </javac>
+    </target>
+    <target name="dist" description="Compiles source files to build directory." depends="compile">        
+        <jar jarfile="${lib}/lgl-1.0.jar" basedir="${build}"/>
+        <delete dir="${build}"/>
+    </target>
+</project>

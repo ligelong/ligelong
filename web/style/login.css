@@ -1,0 +1,105 @@
+	body {
+		background-color:#b8b8b8;
+		text-align:center;
+	}
+
+	#main {
+		position:relative;
+		background:url('../images/background.jpg');
+		width:1024px;
+		height:768px;
+		vertical-align:top
+		margin:0 auto;
+		top:0;
+		margin-right:auto;
+		margin-left:auto;
+	}
+
+	#logo {
+		position:absolute;
+		background:url('../images/logo.jpg');
+		width:112px;
+		height:50px;
+		top:225px;
+		left:343px
+	}
+
+	#loginbutton {
+		background:url('../images/button.png');
+		position:absolute;
+		width:104px;
+		height:39px;
+		top:310px;
+		left:525px;
+	}
+
+	.input_on{
+		padding:2px 8px 0pt 3px;
+		height:25px;
+		width:150px;
+		border:1px solid #999;
+		background-color:#ef7e05;
+		color:#ffffff;
+	}
+
+	.input_off{
+		padding:2px 8px 0pt 3px;
+		height:22px;
+		width:150px;
+		border:1px solid #CCC;
+		background-color:#185294;
+		color:#ffffff;
+	}
+	
+	#un {
+		position:absolute;
+		top:220px;
+		left:480px;
+		line-height:25px;
+	}
+	
+	#uninput {
+		position:absolute;
+		top:220px;
+		left:535px;
+	}
+
+	#pwd {
+		position:absolute;
+		top:260px;
+		left:480px;
+		line-height:25px;
+	}
+	
+	#pwdinput {
+		position:absolute;
+		top:260px;
+		left:535px;
+	}
+	
+	#description {
+		position:absolute;
+		top:400px;
+		left:435px;
+		font-family:Î¢ÈíÑÅºÚ;
+		font-size:16px;
+	}
+	
+	.txt {
+		color:#ffffff;
+		font-family:Î¢ÈíÑÅºÚ;
+		font-size:16px;
+	}
+	
+	.errdiv {
+		position:absolute;
+		top:170px;
+		left:485px;
+	}
+
+	.errtxt {
+		color:#ff0000;
+		font-weight:bold;
+		font-family:Î¢ÈíÑÅºÚ;
+		font-size:18px;
+	}

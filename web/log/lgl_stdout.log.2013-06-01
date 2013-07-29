@@ -1,0 +1,8 @@
+17:42:06,999[WARN][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:100)SQL Error: 1366, SQLState: HY000
+17:42:07,002[ERROR][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:101)Incorrect string value: '\xE7\xAC\xAC\xE4\xBA\x8C...' for column 'title' at row 1
+21:28:12,258[WARN][http-8087-4]org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:947)No mapping found for HTTP request with URI [/yladmin/get_post_content.do] in DispatcherServlet with name 'lgl'
+21:42:14,188[WARN][http-8087-4]org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:947)No mapping found for HTTP request with URI [/yladmin/get_post_content.do] in DispatcherServlet with name 'lgl'
+21:42:34,337[WARN][http-8087-4]org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:947)No mapping found for HTTP request with URI [/yladmin/get_post_content.do] in DispatcherServlet with name 'lgl'
+21:42:59,621[WARN][http-8087-4]org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:947)No mapping found for HTTP request with URI [/yladmin/get_post_content.do] in DispatcherServlet with name 'lgl'
+22:26:42,620[WARN][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:100)SQL Error: 1146, SQLState: 42S02
+22:26:42,627[ERROR][http-8087-1]org.hibernate.util.JDBCExceptionReporter.logExceptions(JDBCExceptionReporter.java:101)Table 'ligelong.tb_lgl_link' doesn't exist

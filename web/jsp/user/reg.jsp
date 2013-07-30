@@ -35,4 +35,4 @@
 		</c:forEach>
 	</div>
 	<hr/>
-<%@include file="../tail.jsp"%>
+<%@include file="../inc/tail.jsp"%>

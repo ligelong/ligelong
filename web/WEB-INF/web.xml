@@ -10,7 +10,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext.xml</param-value>
 	</context-param>
-
 	<!--spring监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -48,6 +47,14 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>userOnlineFilter</filter-name>
+		<filter-class>com.ligelong.product.filter.UserOnlineFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userOnlineFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 	

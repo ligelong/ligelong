@@ -28,4 +28,9 @@ public class UserService extends BaseService<UserEntity> {
     public void setBaseDao(BaseDao<UserEntity> baseDao) {
         this.baseDao = baseDao;
     }
+    
+    public void addUser() {
+    	UserEntity user = new UserEntity();
+    	
+    }
 }

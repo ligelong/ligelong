@@ -15,9 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ligelong.hibernate.entity.PostEntity;
 import com.ligelong.hibernate.entity.UserEntity;
-import com.ligelong.hibernate.service.PostService;
 import com.ligelong.hibernate.service.UserService;
 import com.ligelong.util.Constants;
 import com.ligelong.util.MD5;
@@ -37,18 +35,21 @@ public class UserController {
 	public ModelAndView post(HttpServletRequest request,
 			HttpServletResponse response) {
     	Map<String, Object> model = new HashMap<String, Object>();
-    	String username = WebUtil.getParameter(request, "username", "");
-    	String pwd = WebUtil.getParameter(request, "pwd", "");
-    	UserEntity user = userService.getUserByPwd(username, MD5.change(pwd)); 
-    	if(user!=null) {
-    		HttpSession session = request.getSession(true);
-			session.setAttribute("user_entity", user);
-			request.setAttribute("user", user);
-			WebUtil.setCookies(response, Constants.USER_ID_COOKIE_NAME, user.getId() + "", 30 * 24 * 60 * 60);
-			model.put("url", "/");
-			return new ModelAndView("user/login_success", model);
-    	}
-   		model.put("info", "登录失败，请重试");    		
+		if ("on".equals(WebUtil.getParameter(request, "action", ""))) {
+			String username = WebUtil.getParameter(request, "username", "");
+			String pwd = WebUtil.getParameter(request, "pwd", "");
+			UserEntity user = userService.getUserByPwd(username, MD5.change(pwd));
+			if (user != null) {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("user_entity", user);
+				request.setAttribute("user", user);
+				WebUtil.setCookies(response, Constants.USER_ID_COOKIE_NAME,
+						user.getId() + "", 30 * 24 * 60 * 60);
+				model.put("url", "/");
+				return new ModelAndView("user/login_success", model);
+			}
+			model.put("info", "登录失败，请重试");
+		}
     	return new ModelAndView("user/login", model);
     }
     

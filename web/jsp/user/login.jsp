@@ -12,19 +12,13 @@
 	<title>就是搞笑</title>
 </head>
 <body>
-	<div id="container">
-		<div><!--img src="/photo/logo.png"  alt="logo" /--></div>
-		<div style="text-align:right"><a href="post/post.do">发表</a>&nbsp;<a href="user/login.do">登录</a></div><hr/>
-		<div><a href="post/today.do">今日</a>|<a href="post/top.do?type=1">最搞</a>|<a href="post/top.do?type=2">最衰</a>|<a href="post/top.do?type=3">最新</a>|<a href="post/top.do?type=4">热评</a>|<a href="post/share.do">分享</a></div><hr/>
-		<c:forEach var="link" items="${ad1}">
-		<div>
-			<a href="<c:out value="${link.link}"/>"><c:out value="${link.title}"/></a><br/>
-		</div>
-		</c:forEach>
-		<hr/>
+<%@include file="../inc/header.jsp"%>
+<c:if test="${!empty info}">
+<c:out value="${info}"/><br/>
+</c:if>
 		<form id="loginform" action="login.do" method="post">
 		<input type="hidden" name="action" value="on"/>
-		<div>用户名：<input type="text" name="name" /></div>
+		<div>用户名：<input type="text" name="username" /></div>
 		<div>密码：<input type="password" name="pwd" /></div>
 		<hr/>
 		<div><a href="#" onclick="submitform()">登录</a>&nbsp;<a href="../user/reg.do">注册</a></div>

@@ -45,7 +45,7 @@ public class UserService extends BaseService<UserEntity> {
 
 	public UserEntity getUserByPwd(String username, String pwd) {
 		String hql = "from UserEntity where username=? and password=?";
-		if(this.getBaseDao().findCountByHql(hql, new Object[]{username, pwd})<1) {
+		if(this.getBaseDao().findCountByHql("select count(*) " + hql, new Object[]{username, pwd})<1) {
 			return null;
 		}
 		UserEntity user = this.getBaseDao().findListByHql(hql, new Object[]{username, pwd}).get(0);

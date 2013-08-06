@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ligelong.hibernate.entity.CommentEntity;
 import com.ligelong.hibernate.entity.PostEntity;
+import com.ligelong.hibernate.entity.UserEntity;
 import com.ligelong.hibernate.service.CommentService;
 import com.ligelong.hibernate.service.PostService;
 import com.ligelong.util.WebUtil;
@@ -63,6 +64,81 @@ public class PostController {
     		model.put("comments", commentEntities);
     	}
     	return new ModelAndView("post/post", model);
+    }
+    
+    @RequestMapping(value="/add.do")
+	public ModelAndView add(HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		UserEntity user = (UserEntity)request.getAttribute("user");
+		if(user==null) {
+			return new UserController().login(request, response);
+		}
+		if("on".equals(WebUtil.getParameter(request, "action", ""))) {
+			String title = WebUtil.getParameter(request, "title", "");
+			String text = WebUtil.getParameter(request, "text", "");
+			postService.createPost(title, text, user);
+			return new ModelAndView("post/add_success", model);
+		}
+    	return new ModelAndView("post/add", model);
+    }
+    
+    @RequestMapping(value="/today.do")
+	public ModelAndView today(HttpServletRequest request,
+			HttpServletResponse response) {
+    	Map<String, Object> model = new HashMap<String, Object>();
+    	Integer id = WebUtil.getParameterInteger(request, "id", 0);
+    	PostEntity post = postService.find(id);
+    	Integer up = WebUtil.getParameterInteger(request, "up", -1);
+    	if(up>0) {
+    		post = postService.find(up);
+    		if(post!=null) {
+    			postService.updatePostUpCount(post);
+    		}
+    	}
+    	Integer down = WebUtil.getParameterInteger(request, "down", -1);
+    	if(down>0) {
+    		post = postService.find(down);
+    		if(post!=null) {
+    			postService.updatePostDownCount(post);
+    		}
+    	}
+    	if(post!=null) {
+    		if("on".equals(WebUtil.getParameter(request, "action", ""))) {
+    			String content = WebUtil.getParameter(request, "content", "");
+    			if(content.length()>0) {
+    				commentService.addComment(post, content, null);
+    				postService.updatePostCommentCount(post);
+    			}
+    		}
+    		post.putTextToContent(postService.getText(post.getId()));
+    		model.put("post", post);
+    		List<CommentEntity> commentEntities = commentService.findListByHql("from CommentEntity where post.id=?", new Object[]{post.getId()});
+    		model.put("comments", commentEntities);
+    	}
+    	return new ModelAndView("post/post", model);
+    }
+    
+    @RequestMapping(value="/top.do")
+	public ModelAndView top(HttpServletRequest request,
+			HttpServletResponse response) {
+    	Integer type = WebUtil.getParameterInteger(request, "type", 1);
+    	Map<String, Object> model = new HashMap<String, Object>();
+    	model.put("type", type);
+    	switch (type) {
+		case 1:
+			
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+		default:
+			break;
+		}
+    	return new ModelAndView("post/top"+type, model);
     }
     
     @Resource

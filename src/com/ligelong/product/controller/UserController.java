@@ -32,7 +32,7 @@ import com.ligelong.util.WebUtil;
 public class UserController {
 
     @RequestMapping(value="/login.do")
-	public ModelAndView post(HttpServletRequest request,
+	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response) {
     	Map<String, Object> model = new HashMap<String, Object>();
 		if ("on".equals(WebUtil.getParameter(request, "action", ""))) {

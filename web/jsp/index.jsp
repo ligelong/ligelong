@@ -19,7 +19,7 @@
 		} else {
 			out.print("<div>" + c + "</div>");
 		}
-		out.print("<a href='index.do?up=" + post.getId() + "&amp;page=" + pagenumber + "'>↑</a>" + post.getUpcount() + "|<a href='index.do?down=" + post.getId() + "&amp;page=" + pagenumber + "'>↓</a>" + post.getDowncount() + "|<a href='post/post.do?id=" + post.getId() + "'>" + post.getCommentcount() + "条评论</a>|" + "<a href=''>转发</a>");
+		out.print("<a href='index.do?up=" + post.getId() + "&amp;page=" + pagenumber + "'>↑</a>" + post.getUpcount() + "|<a href='index.do?down=" + post.getId() + "&amp;page=" + pagenumber + "'>↓</a>" + post.getDowncount() + "|<a href='post/post.do?id=" + post.getId() + "'>" + post.getCommentcount() + "条评论</a>|" + "<a href='post/share.do?id=" + post.getId() + "'>转发</a>");
 	}
 %>	
 	<div>

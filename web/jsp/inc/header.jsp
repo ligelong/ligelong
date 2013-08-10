@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=utf-8" %><%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<div id="container">
-		<div><a href="/index.do"><img src="/images/logo.jpg"  alt="logo" height="30px" width="50px"/></a></div>
+		<div><a href="/index.do"><img src="/images/logo.png"  alt="logo" height="90px" width="320px"/></a></div>
 		<div style="text-align:right"><a href="post/add.do">发表</a>&nbsp;<%
 			com.ligelong.hibernate.entity.UserEntity user = (com.ligelong.hibernate.entity.UserEntity)request.getAttribute("user");
 			if(user!=null) {

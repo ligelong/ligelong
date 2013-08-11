@@ -9,7 +9,7 @@
 		</c:forEach>
 	</div>
 	<hr/>
-	<div><a href="#top">顶部</a>|<a href="">建议</a>|<a href="">设置</a>|<a href="">导航</a>|<a href="">合作</a></div><hr/>
+	<div><a href="#top">顶部</a>|<a href="f/advice.do">建议</a>|<a href="/f/setting.do">设置</a>|<a href="f/nav.do">导航</a>|<a href="f/corp.do">合作</a></div><hr/>
 	<div>郭德纲老师教导我们！再不搞笑就太搞笑了！</div>
 	<div>本站QQ群：1234567890987654321</div>
 	<div><%=df.format(new java.util.Date())%></div>

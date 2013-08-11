@@ -40,7 +40,7 @@ public class IndexController {
      */
     @RequestMapping(value="/index.do")
 	public ModelAndView input(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+			HttpServletResponse response) {
     	Integer upInteger = WebUtil.getParameterInteger(request, "up", -1);
     	Integer downInteger = WebUtil.getParameterInteger(request, "down", -1);
     	if(upInteger>0) {

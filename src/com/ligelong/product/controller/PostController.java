@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ligelong.hibernate.entity.CommentEntity;
+import com.ligelong.hibernate.entity.LinkEntity;
 import com.ligelong.hibernate.entity.PostEntity;
 import com.ligelong.hibernate.entity.UserEntity;
 import com.ligelong.hibernate.service.CommentService;
 import com.ligelong.hibernate.service.PostService;
+import com.ligelong.util.Constants;
+import com.ligelong.util.PageUtil;
+import com.ligelong.util.Status;
 import com.ligelong.util.WebUtil;
 
 /**
@@ -125,20 +129,72 @@ public class PostController {
     	Integer type = WebUtil.getParameterInteger(request, "type", 1);
     	Map<String, Object> model = new HashMap<String, Object>();
     	model.put("type", type);
-    	switch (type) {
+		switch (type) {
 		case 1:
-			
+
 			break;
 		case 2:
-			
+
 			break;
 		case 3:
-			
+
 			break;
+		case 4:
+
+			break;
+
 		default:
 			break;
 		}
-    	return new ModelAndView("post/top"+type, model);
+		
+
+    	Integer upInteger = WebUtil.getParameterInteger(request, "up", -1);
+    	Integer downInteger = WebUtil.getParameterInteger(request, "down", -1);
+    	if(upInteger>0) {
+    		PostEntity upPostEntity = postService.find(upInteger);
+    		if(upPostEntity!=null) {
+    			postService.updatePostUpCount(upPostEntity);
+    		}
+    	}
+    	if(downInteger>0) {
+    		PostEntity downPostEntity = postService.find(downInteger);
+    		if(downPostEntity!=null) {
+    			postService.updatePostDownCount(downPostEntity);
+    		}
+    	}
+    	
+		int page = WebUtil.getParameterInteger(request, "page", 1);
+		int count = postService.findCountByHql(
+				"select count(*) from PostEntity where status=?",
+				new Object[]{Status.ON.getValue()});
+		PageUtil.PageScrollInfo pageScrollInfo = PageUtil.getPageScroll(count,
+				page, Constants.PAGE_LENGTH);
+		List<PostEntity> postList = postService.findListByHql(
+				"from PostEntity where status=?",
+				new Object[]{Status.ON.getValue()},
+				pageScrollInfo.getCurrentItemStart(), Constants.PAGE_LENGTH);
+		for(PostEntity post : postList) {
+			post.putTextToContent(postService.getText(post.getId()));
+		}
+		model.put("list", postList);
+		
+		model.put("pagenumber", pageScrollInfo.getCurrentPageNumber());
+		if(pageScrollInfo.hasNextPage()) {
+			model.put("nextpage", pageScrollInfo.getNextPageNumber());
+		}
+		if(pageScrollInfo.getCurrentPageNumber()>1) {
+			model.put("prevpage", pageScrollInfo.getBackPageNumber());
+		}
+		model.put("totalpage", pageScrollInfo.getPageNumber());
+		
+    	return new ModelAndView("post/top", model);
+    }
+    
+    @RequestMapping(value="/share.do")
+	public ModelAndView share(HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		return new ModelAndView("post/share", model);
     }
     
     @Resource

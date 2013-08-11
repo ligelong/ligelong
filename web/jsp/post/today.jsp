@@ -7,6 +7,6 @@
 	<title>就是搞笑</title>
 </head>
 <body>
-<%@include file="inc/header.jsp"%>
+<%@include file="../inc/header.jsp"%>
 建设中
-<%@include file="inc/tail.jsp"%>
+<%@include file="../inc/tail.jsp"%>

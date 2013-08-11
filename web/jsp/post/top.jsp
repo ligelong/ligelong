@@ -7,7 +7,7 @@
 	<title>就是搞笑</title>
 </head>
 <body>
-<%@include file="inc/header.jsp"%>
+<%@include file="../inc/header.jsp"%>
 <%
 	Object pagenumber = request.getAttribute("pagenumber");
 	java.util.List<com.ligelong.hibernate.entity.PostEntity> postList = (java.util.List<com.ligelong.hibernate.entity.PostEntity>)request.getAttribute("list");
@@ -47,4 +47,4 @@
 			<a href="index.do?page=<c:out value="${totalpage}"/>"><c:out value="${totalpage}"/></a>&nbsp;
 		</c:if>
 	</div>
-<%@include file="inc/tail.jsp"%>
+<%@include file="../inc/tail.jsp"%>

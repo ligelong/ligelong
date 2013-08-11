@@ -94,7 +94,6 @@ public class IndexController {
 		return new ModelAndView("index", model);
 	}
 
-    
     @Resource
     private PostService postService;
     @Resource

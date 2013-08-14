@@ -80,6 +80,9 @@ public class PostController {
 		if("on".equals(WebUtil.getParameter(request, "action", ""))) {
 			String title = WebUtil.getParameter(request, "title", "");
 			String text = WebUtil.getParameter(request, "text", "");
+			if(title.isEmpty()||text.isEmpty()) {
+				return new ModelAndView("post/add_failure", model);
+			}
 			postService.createPost(title, text, user);
 			return new ModelAndView("post/add_success", model);
 		}

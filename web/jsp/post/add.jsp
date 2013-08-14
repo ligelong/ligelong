@@ -2,7 +2,8 @@
 <jsp:include page="/header.do"/>
 <form action="add.do" method="post">
 <input type="hidden" name="action" value="on"/>
-<textarea name="content" ></textarea>
-<input type="submit" value="提交"/>
+标题：<input type="text" name="title" /><br/>
+内容：<textarea name="content" ></textarea><br/>
+<input type="submit" value="提交"/><br/>
 </form>
 <jsp:include page="/tail.do"/>

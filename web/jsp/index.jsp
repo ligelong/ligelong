@@ -1,5 +1,5 @@
 <%@page contentType="text/html; charset=utf-8" %><%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="/header.do"%>
+<jsp:include page="/header.do"/>
 <%
 	Object pagenumber = request.getAttribute("pagenumber");
 	java.util.List<com.ligelong.hibernate.entity.PostEntity> postList = (java.util.List<com.ligelong.hibernate.entity.PostEntity>)request.getAttribute("list");
@@ -39,4 +39,4 @@
 			<a href="index.do?page=<c:out value="${totalpage}"/>"><c:out value="${totalpage}"/></a>&nbsp;
 		</c:if>
 	</div>
-<%@include file="/tail.do"%>
+<jsp:include page="/tail.do"/>

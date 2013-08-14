@@ -81,19 +81,30 @@ public class IndexController {
 		}
 		model.put("totalpage", pageScrollInfo.getPageNumber());
 		
-		List<LinkEntity> ad1List = linkService.findListByHql(
-				"from LinkEntity where parentid=? and type=?", new Object[] {
-						1, LinkEntity.Type.LINK.getValue() });
-		model.put("ad1", ad1List);
 		
-		List<LinkEntity> ad2List = linkService.findListByHql(
-				"from LinkEntity where parentid=? and type=?", new Object[] {
-						2, LinkEntity.Type.LINK.getValue() });
-		model.put("ad2", ad2List);
+		
 		
 		return new ModelAndView("index", model);
 	}
 
+    @RequestMapping(value="/header.do")
+	public ModelAndView header(HttpServletRequest request,
+			HttpServletResponse response) {
+    	List<LinkEntity> ad1List = linkService.findListByHql(
+				"from LinkEntity where parentid=? and type=?", new Object[] {
+						1, LinkEntity.Type.LINK.getValue() });
+    	return new ModelAndView("inc/header", "ad1", ad1List);
+    }
+    
+    @RequestMapping(value="/tail.do")
+	public ModelAndView tail(HttpServletRequest request,
+			HttpServletResponse response) {
+    	List<LinkEntity> ad2List = linkService.findListByHql(
+				"from LinkEntity where parentid=? and type=?", new Object[] {
+						2, LinkEntity.Type.LINK.getValue() });
+    	return new ModelAndView("inc/tail", "ad2", ad2List);
+    }
+    
     @Resource
     private PostService postService;
     @Resource
